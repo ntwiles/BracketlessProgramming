@@ -22,7 +22,7 @@ class Program
             "Too low! "+(maxNumGuesses - guessesMade) + " guesses left.",
             maxNumGuesses - guessesMade);
 
-        Console.WriteLine("# from 1-{0}. Guess:",secretNumMax);
+        Console.WriteLine("# from 1-"+secretNumMax+". Guess:");
 
         while (guessesMade < maxNumGuesses && !gameWon) doRound();
 
@@ -30,4 +30,6 @@ class Program
         Console.ReadKey();
     }
 }
+
+
 
