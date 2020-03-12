@@ -1,12 +1,13 @@
-﻿using System;
+using System;
 
 class Program
 {
     static void Main(string[] args)
     {
         int maxNumGuesses = 10;
+        int secretNumMax = 100;
         Random rand = new Random();
-        int secretNum = rand.Next(1, maxNumGuesses);
+        int secretNum = rand.Next(1, secretNumMax);
 
         int guess = 0;
         int guessesMade = 0;
@@ -21,7 +22,7 @@ class Program
             "Too low! "+(maxNumGuesses - guessesMade) + " guesses left.",
             maxNumGuesses - guessesMade);
 
-        Console.WriteLine("# from 1-10. Guess:");
+        Console.WriteLine("# from 1-{0}. Guess:",secretNumMax);
 
         while (guessesMade < maxNumGuesses && !gameWon) doRound();
 
