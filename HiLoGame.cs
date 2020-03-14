@@ -1,34 +1,31 @@
 using System;
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
-    {
-        int maxNumGuesses = 10;
-        int secretNumMax = 100;
-        Random rand = new Random();
-        int secretNum = rand.Next(1, secretNumMax);
+    static int maxNumGuesses = 10;
+    static int maxSecretNum = 100;
+    static int secretNum = new Random().Next(1, maxSecretNum);
 
-        int guess = 0;
-        int guessesMade = 0;
-        bool gameWon = false;
+    static int guess = 0;
+    static int guessesMade = 0;
+    static bool gameWon = false;
 
-        int getGuess() => Int32.TryParse(Console.ReadLine(), out int result) ? result : getGuess();
-        (int guess, int, bool gameWon) checkGuessEqual() => (guess = getGuess(), guessesMade++, gameWon = guess == secretNum ? true : false);
-        void doRound() => Console.WriteLine(checkGuessEqual().gameWon ? 
-            "You won! "+ (maxNumGuesses - guessesMade) + " guesses left." : 
-            guess > secretNum ? 
-            "Too high! "+(maxNumGuesses - guessesMade) + " guesses left." : 
-            "Too low! "+(maxNumGuesses - guessesMade) + " guesses left.",
-            maxNumGuesses - guessesMade);
+    static int getGuess() => Int32.TryParse(Console.ReadLine(), out int result) ? result : getGuess();
 
-        Console.WriteLine("# from 1-"+secretNumMax+". Guess:");
+    static (int, int, bool gameWon) checkGuessEqual() => (guess = getGuess(), guessesMade++, gameWon = guess == secretNum);
 
-        while (guessesMade < maxNumGuesses && !gameWon) doRound();
+    static (bool, int guessesMade) doRound() => (Console.WriteLine(
+                checkGuessEqual().gameWon ? "You won!" :
+                guessesMade >= maxNumGuesses ? "Game over." :
+                guess > secretNum ? "Too high! " + (maxNumGuesses - guessesMade) + " guesses left." :
+                "Too low! " + (maxNumGuesses - guessesMade) + " guesses left."
+        ) is object,guessesMade);
 
-        if (guessesMade == maxNumGuesses) Console.WriteLine("Game over!");
-        Console.ReadKey();
-    }
+    static bool sayHello() => Console.WriteLine("I have a secret number from 1 to "+ maxSecretNum + ". Guess:") is object;
+
+    static void CMain(string[] args) => Console.WriteLine("", sayHello(), gameLoop(), Console.ReadKey());
+
+    static int gameLoop() => doRound().guessesMade >= maxNumGuesses || gameWon ? 0 : gameLoop();
 }
 
 
