@@ -4,4 +4,4 @@ As a personal challenge and to deepen my understanding of C#, I thought it would
 
 After diving into the project, I believe it's impossible.
 
-That said, I got pretty darn close. I wrote the common console game High Low using only two brackets; the ones to define the class.
+That said, I got pretty darn close. I wrote the common console game High Low using only two brackets; the ones needed to define the class body.
