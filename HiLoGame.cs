@@ -27,7 +27,7 @@ public class Program
 
     static bool sayGoodbye() => Console.WriteLine(gameWon ? "You won!" : "Game over.") is object;
 
-    static void Main(string[] args) => Console.WriteLine("", sayHello(), gameLoop(), sayGoodbye(), Console.ReadKey());
+    static void Main(string[] args) => String.Format("", sayHello(), gameLoop(), sayGoodbye(), Console.ReadKey());
 
     static int gameLoop() => doRound().guessesMade >= maxNumGuesses || gameWon ? 0 : gameLoop();
 }
