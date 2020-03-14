@@ -1,11 +1,7 @@
 # BracketlessProgramming
 
-I took on the following challenge to myself to deepen my understanding of C#:
+As a personal challenge and to deepen my understanding of C#, I thought it would be a good exercise to see if I could write a program without using a single bracket ("{" or "}").
 
-**Write a program that doesn't use any brackets.**
+After diving into the project, I believe it's impossible.
 
-I quickly found out it wasn't possible (or at least I believe it not to be), since you need a mininum of four brackets just to get a "Hello World" program to compile. 
-
-Ignoring those four though, it's mind-bending how far your compiler will let you get without the warm embrace of those curly braces.
-
-In this repo is my version of the popular (among developers and only among developers) console game Hi-Lo, using only four brackets.
+That said, I got pretty darn close. I wrote the common console game High Low using only two brackets; the ones to define the class.
